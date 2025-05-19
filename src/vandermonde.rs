@@ -30,26 +30,9 @@ impl VanderMonde{
         }
     }
 
-    fn copy(&self) -> Self {
-        self.clone()
-    }
-
-    fn get(&self, row: usize, col: usize) -> u8 {
-        self.elements[row][col]
-    }
-
-    fn add_rows(&mut self, target: usize, source: usize) {
-        for i in 0..self.ncols() {
-            self.elements[target][i] ^= self.elements[source][i];
-        }
-    }
 
     fn swap_rows(&mut self, row1: usize, row2: usize) {
         self.elements.swap(row1, row2);
-    }
-
-    fn is_zero_row(&self, row: usize) -> bool {
-        self.elements[row].iter().all(|&x| x == 0)
     }
 
     pub fn row_echelon_form(&self) -> (Self, Vec<(usize, usize)>) {
@@ -220,12 +203,6 @@ impl VanderMonde{
     }
 }
 
-fn add_to_vectors(mut v1: Vec<u8>, v2: Vec<u8>, size: usize) -> Vec<u8> {
-    for i in 0..size {
-        v1[i] ^= v2[i];
-    }
-    v1
-}
 
 pub fn str_ops(s1: &str, s2: &str) -> u8 {
     s1.chars()
