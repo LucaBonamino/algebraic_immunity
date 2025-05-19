@@ -1,3 +1,4 @@
+#[derive(Clone)]
 pub struct VanderMonde{
     pub elements: Vec<Vec<u8>>,
 }
@@ -29,26 +30,9 @@ impl VanderMonde{
         }
     }
 
-    fn copy(&self) -> Self {
-        self.clone()
-    }
-
-    fn get(&self, row: usize, col: usize) -> u8 {
-        self.elements[row][col]
-    }
-
-    fn add_rows(&mut self, target: usize, source: usize) {
-        for i in 0..self.ncols() {
-            self.elements[target][i] ^= self.elements[source][i];
-        }
-    }
 
     fn swap_rows(&mut self, row1: usize, row2: usize) {
         self.elements.swap(row1, row2);
-    }
-
-    fn is_zero_row(&self, row: usize) -> bool {
-        self.elements[row].iter().all(|&x| x == 0)
     }
 
     pub fn row_echelon_form(&self) -> (Self, Vec<(usize, usize)>) {
@@ -161,4 +145,86 @@ impl VanderMonde{
     fn get_pivot(row: &Vec<u8>) -> Option<usize> {
         row.iter().position(|&x| x == 1)
     }
+
+    pub fn compute_next(
+        &self,
+        monom_slice: Vec<String>,
+        support_slice: Vec<String>,
+        idx: usize,
+        operations: Vec<(usize, usize)>
+    ) -> Self {
+        let mut m_copy = self.clone();
+        let row: Vec<u8> = (0..=idx)
+            .map(|i| str_ops(&support_slice[support_slice.len() - 1], &monom_slice[i]) as u8)
+            .collect();
+        let column: Vec<u8> = (0..idx)
+            .map(|i| str_ops(&support_slice[i], &monom_slice[monom_slice.len() - 1]) as u8)
+            .collect();
+
+        let n_vect: Vec<u8> = apply_operations(&operations, column);
+        m_copy.append_column(n_vect);
+        m_copy.append_row(row);
+
+        m_copy
+    }
+
+    pub fn fill_rows(&self, support_slice: Vec<String>, monom_slice: Vec<String>) -> Self {
+        let mut m_copy = self.clone();
+        for j in 0..support_slice.len(){
+            let row: Vec<u8> = (0..monom_slice.len())
+                .map(|i| str_ops(&support_slice[j], &monom_slice[i]) as u8)
+                .collect();
+            m_copy.append_row(row)
+        }
+
+        m_copy
+    }
 }
+
+
+pub fn str_ops(s1: &str, s2: &str) -> u8 {
+    s1.chars()
+        .zip(s2.chars())
+        .map(|(c1, c2)| {
+            let base = c1.to_digit(10).unwrap() as u8;
+            let exp = c2.to_digit(10).unwrap() as u8;
+            base.pow(exp as u32)
+        })
+        .product()
+}
+
+fn apply_operations(operations: &Vec<(usize, usize)>, v: Vec<u8>) -> Vec<u8> {
+    let mut result = v.clone();
+    for &(op1, op2) in operations.iter() {
+        result[op1] = (result[op1] + result[op2]) % 2;
+    }
+    result
+}
+
+
+fn is_submonomial(sub_monom: &str, monom: &str) -> bool {
+    assert_eq!(sub_monom.len(), monom.len(), "The lengths of sub_monom and monom must be equal");
+
+    for (char1, char2) in sub_monom.chars().zip(monom.chars()) {
+        if char1 > char2 {
+            return false;
+        }
+    }
+    true
+}
+
+pub fn verify(z: Vec<String>, g: Vec<u8>, mapping: Vec<String>) -> (bool, Option<(usize, String)>) {
+    for (idx, item) in z.iter().enumerate() {
+        let anf: Vec<u8> = (0..g.len())
+            .filter(|&i| is_submonomial(&mapping[i], item))
+            .map(|i| g[i])
+            .collect();
+
+        if anf.iter().copied().sum::<u8>() % 2 == 1 {
+            return (false, Some((idx, item.clone())));
+        }
+    }
+    (true, None)
+}
+
+

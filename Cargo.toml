@@ -3,4 +3,11 @@ name = "algebraic_immunity"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "algebraic_immunity"
+crate-type = ["cdylib"]
+
 [dependencies]
+pyo3 = "^0.23.0"
+itertools = "0.10"
+rayon = "1.10"
