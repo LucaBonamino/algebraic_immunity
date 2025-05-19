@@ -2,6 +2,7 @@ use itertools::Itertools;
 use rayon::prelude::*;
 use crate::vandermonde::{VanderMonde, str_ops, verify}; 
 use pyo3::prelude::*;
+use std::cmp::min;
 
 #[pyclass]
 #[derive(Clone)]
@@ -49,14 +50,14 @@ impl AlgebraicImmunity {
         let e = Self::generate_combinations(n, r);
 
         let args = vec![
-            (z.clone(), e.clone()),
-            (z_c.clone(), e.clone()),
+            (z.clone(), e.clone(), n),
+            (z_c.clone(), e.clone(), n),
         ];
 
         let results: Vec<Option<usize>> = args
             .par_iter()
-            .map(|(z, e)| {
-                Self::find_min_annihilator(z.clone(), e.clone())
+            .map(|(z, e, n)| {
+                Self::find_min_annihilator(z.clone(), e.clone(), *n)
             })
             .collect();
 
@@ -79,7 +80,7 @@ impl AlgebraicImmunity {
                 for &pos in &ones_positions {
                     binary_string[pos] = '1';
                 }
-                let combination: String = binary_string.iter().rev().collect(); // ✅ No reverse
+                let combination: String = binary_string.iter().rev().collect();
                 all_combinations.push(combination);
             }
         }
@@ -89,23 +90,31 @@ impl AlgebraicImmunity {
 
     pub fn find_min_annihilator(
         mut z: Vec<String>,
-        e: Vec<String>
+        e: Vec<String>,
+        n: usize
     ) -> Option<usize> {
 
-        let max_number_of_monimials = e.len();
+        let max_number_of_monimials = e.len()-1;
         if max_number_of_monimials == 0{
             return None;
+        }
+        let size_support = z.len();
+        if size_support < n+1{
+            // If the cardinality of the support is smaller than D_1^n, the an annihiliator of degree d <= 1 must exist. if d was 0, 
+            // it would hav been detcted ba the caller of this function. Therefore d = 1.
+            return Some(1);
         }
 
         let mut vander_monde = VanderMonde::new(vec![
             vec![str_ops(&z[0], &e[0])]
         ]);
+        
 
         let mut idx = 0;
         let mut i = 1;
         let mut operations: Vec<(usize, usize)> = vec![];
 
-        let n_iters = z.len();
+        let n_iters = min(size_support, max_number_of_monimials);
 
         while i < n_iters {
 
@@ -115,11 +124,12 @@ impl AlgebraicImmunity {
 
             if vander_monde.rank() < i + 1 {
                 let kernel = vander_monde.kernel();
+                // The kernel basis only contains one element because of the algorithm design.
                 let k = &kernel[0];
 
                 let (vanish_on_z, vanish_index_opt) = verify(z[i + 1..].to_vec(), k.clone(), e[..=i].to_vec());
                 if vanish_on_z {
-                    return Some(e[i].chars().filter(|c| *c == '1').count());
+                    return Some(hamming_weight(&e[i]));
                 } else if let Some(vanish_index) = vanish_index_opt {
                     let new_index = i + vanish_index.0 + 1;
                     if new_index < z.len() {
@@ -133,23 +143,24 @@ impl AlgebraicImmunity {
             operations.extend(operations_i);
         }
 
-        if vander_monde.rank() < i+1 {
-            return Some(e[idx].chars().filter(|c| *c == '1').count());
-        }
-
-        if i < max_number_of_monimials{
+        if (n_iters == size_support && size_support == max_number_of_monimials) || n_iters == max_number_of_monimials {
+            // If the maximum number of iterations are reached, the algebraic immunity is ceil(n/2) - the hamming weight of the last monomial.
+            if let Some(last) = e.last() {
+                return Some(hamming_weight(&last));
+            } else {
+                return None;
+            }
+        } else if n_iters == size_support{
+            // If all the elements of the support have been considered, at the next itaration, the matrix will not be squared anymore, and hence the rank of V_{n_iters+1} is not full anymore.
             return Some(hamming_weight(&e[idx+1]));
-            // return Some(e[idx+1].chars().filter(|c| *c == '1').count());
-        }
-        if let Some(last) = e.last() {
-            return Some(last.chars().filter(|c| *c == '1').count());
-        } else {
+        } else{
             return None;
         }
+        
 
     }
 
-    
+
 }
 
 

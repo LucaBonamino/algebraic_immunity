@@ -168,17 +168,6 @@ impl VanderMonde{
         m_copy
     }
 
-    pub fn fill_rows(&self, support_slice: Vec<String>, monom_slice: Vec<String>) -> Self {
-        let mut m_copy = self.clone();
-        for j in 0..support_slice.len(){
-            let row: Vec<u8> = (0..monom_slice.len())
-                .map(|i| str_ops(&support_slice[j], &monom_slice[i]) as u8)
-                .collect();
-            m_copy.append_row(row)
-        }
-
-        m_copy
-    }
 }
 
 
