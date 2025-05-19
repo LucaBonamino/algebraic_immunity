@@ -158,3 +158,8 @@ fn hamming_weight(word: &str) -> usize{
 }
 
 
+fn hamming_weight(word: &str) -> usize{
+    return word.chars().filter(|c| *c == '1').count();
+}
+
+
