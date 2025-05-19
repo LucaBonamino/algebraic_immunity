@@ -40,7 +40,8 @@ impl AlgebraicImmunity {
             return 0;
         }
 
-        let e = Self::generate_combinations(n, n);
+        let r = (n+1) / 2;
+        let e = Self::generate_combinations(n, r);
 
         let args = vec![
             (z.clone(), e.clone()),
@@ -82,6 +83,12 @@ impl AlgebraicImmunity {
         mut z: Vec<String>,
         e: Vec<String>
     ) -> Option<usize> {
+
+        let max_number_of_monimials = e.len();
+        if max_number_of_monimials == 0{
+            return None;
+        }
+
         let mut vander_monde = VanderMonde::new(vec![
             vec![str_ops(&z[0], &e[0])]
         ]);
@@ -118,14 +125,28 @@ impl AlgebraicImmunity {
             operations.extend(operations_i);
         }
 
-        if vander_monde.rank() < i {
+        if vander_monde.rank() < i+1 {
             return Some(e[idx].chars().filter(|c| *c == '1').count());
         }
 
-        None
+        if i < max_number_of_monimials{
+            return Some(hamming_weight(&e[idx+1]));
+            // return Some(e[idx+1].chars().filter(|c| *c == '1').count());
+        }
+        if let Some(last) = e.last() {
+            return Some(last.chars().filter(|c| *c == '1').count());
+        } else {
+            return None;
+        }
+
     }
 
 
+}
+
+
+fn hamming_weight(word: &str) -> usize{
+    return word.chars().filter(|c| *c == '1').count();
 }
 
 
