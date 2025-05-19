@@ -16,3 +16,7 @@ classifiers = [
 dynamic = ["version"]
 [tool.maturin]
 features = ["pyo3/extension-module"]
+
+[project.urls]
+Homepage = "https://github.com/LucaBonamino/algebraic_immunity"
+Repository = "https://github.com/LucaBonamino/algebraic_immunity"
