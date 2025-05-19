@@ -1,15 +1,19 @@
 use itertools::Itertools;
 use rayon::prelude::*;
 use crate::vandermonde::{VanderMonde, str_ops, verify}; 
+use pyo3::prelude::*;
 
+#[pyclass]
 #[derive(Clone)]
 pub struct AlgebraicImmunity {
     truth_table: Vec<u8>
 }
 
 
+#[pymethods]
 impl AlgebraicImmunity {
 
+    #[new]
     pub fn new(truth_table: Vec<u8>) -> Self {
         AlgebraicImmunity { truth_table }
     }
@@ -32,6 +36,7 @@ impl AlgebraicImmunity {
         (true_idxs, false_idxs)
     }
 
+    #[staticmethod]
     pub fn algebraic_immunity(truth_table: Vec<u8>, n: usize) -> usize {
         let restricted_ai = Self::new(truth_table);
         let (z, z_c) = restricted_ai.compute_z(n);
@@ -61,6 +66,10 @@ impl AlgebraicImmunity {
         }
     }
 
+}
+
+impl AlgebraicImmunity {
+
     fn generate_combinations(n: usize, r: usize) -> Vec<String> {
         let mut all_combinations = Vec::new();
 
@@ -77,7 +86,6 @@ impl AlgebraicImmunity {
 
         all_combinations
     }
-
 
     pub fn find_min_annihilator(
         mut z: Vec<String>,
@@ -141,7 +149,7 @@ impl AlgebraicImmunity {
 
     }
 
-
+    
 }
 
 

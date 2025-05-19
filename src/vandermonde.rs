@@ -146,28 +146,6 @@ impl VanderMonde{
         row.iter().position(|&x| x == 1)
     }
 
-    pub fn construct_and_add_column(&self, support: Vec<String>, monom: String, operations: Vec<(usize, usize)>) -> Self {
-        let mut m_copy = self.clone();
-        let column: Vec<u8> = (0..m_copy.nrows())
-            .map(|i| str_ops(&support[i], &monom) as u8)
-            .collect();
-        let n_vect: Vec<u8> = apply_operations(&operations, column);
-        m_copy.append_column(n_vect);
-
-        m_copy
-    }
-
-    pub fn compute_vandermonde(support: Vec<String>, monomials: Vec<String> ) -> Vec<Vec<u8>>{
-        let result: Vec<Vec<u8>> = support.iter()
-            .map(|zi| {
-                monomials.iter()
-                    .map(|ej| str_ops(&zi, &ej))
-                    .collect()
-            })
-            .collect();
-        result
-    }
-
     pub fn compute_next(
         &self,
         monom_slice: Vec<String>,
