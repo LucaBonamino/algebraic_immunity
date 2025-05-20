@@ -153,9 +153,9 @@ impl AlgebraicImmunity {
         } else if n_iters == size_support{
             // If all the elements of the support have been considered, at the next itaration, the matrix will not be squared anymore, and hence the rank of V_{n_iters+1} is not full anymore.
             return Some(hamming_weight(&e[idx+1]));
-        } else{
-            return None;
         }
+
+        None
         
 
     }
@@ -165,7 +165,7 @@ impl AlgebraicImmunity {
 
 
 fn hamming_weight(word: &str) -> usize{
-    return word.chars().filter(|c| *c == '1').count();
+    word.chars().filter(|c| *c == '1').count()
 }
 
 
