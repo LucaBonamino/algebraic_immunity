@@ -12,6 +12,10 @@ This library was developed to provide a robust and reliable implementation of al
 
 This Rust implementation has been tested extensively and is suitable for both small and large truth tables, with a focus on correctness and Python accessibility.
 
+## Future Work
+
+This repository focuses on the core algorithm as presented in Armknecht et al. (2006). A generalization of the method for computing algebraic immunity over restricted input sets has been developed by the author and is currently under peer review.
+
 ---
 
 ## Installation
@@ -47,3 +51,11 @@ n = 3
 ai = AlgebraicImmunity.algebraic_immunity(truth_table, n)
 print(f"Algebraic immunity: {ai}")
 ```
+
+---
+
+## Future Work
+
+- Parts of this repository are more broadly relevant to operations over GF(2) matrices. These components could be extracted into a standalone Rust crate in the future.
+- The current implementation sometimes uses the `clone` method unnecessarily to bypass Rust’s borrowing rules. These instances will be reviewed and optimized in future updates.
+- This repository focuses on the core algorithm as presented in Armknecht et al. (2006). A generalization of the method for computing algebraic immunity over restricted input sets has been developed by the author and is currently under peer review.
