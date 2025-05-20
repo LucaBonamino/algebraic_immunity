@@ -124,7 +124,7 @@ impl AlgebraicImmunity {
 
             if vander_monde.rank() < i + 1 {
                 let kernel = vander_monde.kernel();
-                // The kernel basis only contains one element because of the algorithm design.
+                // The kernel basis only contains maximum one element because of the algorithm design.
                 let k = &kernel[0];
 
                 let (vanish_on_z, vanish_index_opt) = verify(z[i + 1..].to_vec(), k.clone(), e[..=i].to_vec());
