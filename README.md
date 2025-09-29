@@ -2,7 +2,7 @@
 
 Rust implementation of the algebraic immunity computation of Boolean functions, based on the paper  
 *"Efficient Computation of Algebraic Immunity for Algebraic and Fast Algebraic Attacks"*  
-(Armknecht et al., 2006, DOI: https://doi.org/10.1007/11761679_8).
+(Armknecht et al., 2006, DOI: https://doi.org/10.1007/11761679_8). However, the algorithm presented in the paper relies on implicit assumptions that make direct implementation infeasible. Our implementation uses two new propositions from our paper *"Computing the restricted algebraic immunity, and application to WPB functions."*, that resolve this issue: they drastically reduce complexity and make the non-restricted algorithm implementable in practice — while also enabling our efficient extension to the restricted case.
 
 This Rust implementation is wrapped as a Python package using PyO3 (https://pyo3.rs) and maturin (https://github.com/PyO3/maturin).
 
