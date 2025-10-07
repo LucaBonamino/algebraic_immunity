@@ -3,8 +3,7 @@
 Rust implementation of the algebraic immunity computation of Boolean functions, based on the paper  
 *"Efficient Computation of Algebraic Immunity for Algebraic and Fast Algebraic Attacks"*  
 (Armknecht et al., 2006, DOI: https://doi.org/10.1007/11761679_8). However, the algorithm presented in the paper relies on implicit assumptions that make direct implementation infeasible. Our implementation uses two new propositions from our paper *"Computing the Restricted Algebraic Immunity, and Application to WPB Functions"*  
-Luca Bonamino and Pierrick Méaux. [IACR ePrint 2025/1779](https://eprint.iacr.org/2025/1779).
-, that resolve this issue: they drastically reduce complexity and make the non-restricted algorithm implementable in practice — while also enabling our efficient extension to the restricted case.
+Luca Bonamino and Pierrick Méaux. [IACR ePrint 2025/1779](https://eprint.iacr.org/2025/1779), that resolve this issue: they drastically reduce complexity and make the non-restricted algorithm implementable in practice — while also enabling our efficient extension to the restricted case.
 
 This Rust implementation is wrapped as a Python package using PyO3 (https://pyo3.rs) and maturin (https://github.com/PyO3/maturin).
 
@@ -13,10 +12,6 @@ This Rust implementation is wrapped as a Python package using PyO3 (https://pyo3
 This library was developed to provide a robust and reliable implementation of algebraic immunity computation. It addresses a correctness issue in SageMath’s `BooleanFunction.algebraic_immunity()` method, which can raise internal errors or produce incorrect results for certain Boolean functions — particularly those with two variables, such as `[1, 0, 0, 1]`.
 
 This Rust implementation has been tested extensively and is suitable for both small and large truth tables, with a focus on correctness and Python accessibility.
-
-## Future Work
-
-This repository focuses on the core algorithm as presented in Armknecht et al. (2006). A generalization of the method for computing algebraic immunity over restricted input sets has been developed by the author and is currently under peer review.
 
 ---
 
@@ -60,4 +55,4 @@ print(f"Algebraic immunity: {ai}")
 
 - Parts of this repository are more broadly relevant to operations over GF(2) matrices. These components could be extracted into a standalone Rust crate in the future.
 - The current implementation sometimes uses the `clone` method unnecessarily to bypass Rust’s borrowing rules. These instances will be reviewed and optimized in future updates.
-- This repository focuses on the core algorithm as presented in Armknecht et al. (2006). A generalization of the method for computing algebraic immunity over restricted input sets has been developed by the author and is currently under peer review.
+ 
