@@ -15,6 +15,7 @@ crate-type = ["cdylib"]
 pyo3 = "^0.23.0"
 itertools = "0.10"
 rayon = "1.10"
+algebraic_immunity_ext = { package = "algebraic_immunity", version = "0.3.1" }
 
 [profile.release]
 opt-level = 3

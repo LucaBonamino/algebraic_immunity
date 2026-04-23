@@ -1,6 +1,7 @@
 mod vandermonde;
 mod ai;
 use pyo3::prelude::*;
+use algebraic_immunity_ext;
 
 
 #[pymodule]
