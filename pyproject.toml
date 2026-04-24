@@ -7,7 +7,7 @@ name = "algebraic_immunity"
 authors = [
     { name = "LucaBonamino"}
 ]
-requires-python = ">=3.6",
+requires-python = ">=3.6"
 description = "A package for computing the algebraic immunity and restricted algebraic immunity of Boolean functions."
 readme = { file = "README.md", content-type = "text/markdown" }
 classifiers = [
