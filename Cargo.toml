@@ -1,9 +1,9 @@
 [package]
 name = "algebraic_immunity"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["LucaBonamino"]
-description = "A Rust-based Python package to compute the algebraic immunity of Boolean functions."
+description = "A Rust-based Python package to compute the algebraic immunity and restricted algebraic immunity of Boolean functions."
 homepage = "https://github.com/LucaBonamino/algebraic_immunity"
 repository = "https://github.com/LucaBonamino/algebraic_immunity"
 
@@ -15,6 +15,7 @@ crate-type = ["cdylib"]
 pyo3 = "^0.23.0"
 itertools = "0.10"
 rayon = "1.10"
+algebraic_immunity_ext = { package = "algebraic_immunity", version = "0.3.2" }
 
 [profile.release]
 opt-level = 3
