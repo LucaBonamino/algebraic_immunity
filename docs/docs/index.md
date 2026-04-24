@@ -38,10 +38,17 @@ n = 3
 ai = AlgebraicImmunity.ai(truth_table, n)
 print(f"Algebraic immunity: {ai}")
 
-# Restricted Algebraic immunity
 bf = BooleanFunction(truth_table)
 ai = bf.algebraic_immunity()
 print(f"Algebraic immunity: {ai}")
+
+# Restricted algebraic immunity
+ai = AlgebraicImmunity.restricted_ai(truth_table, [0,2] ,n)
+print(f"Algebraic immunity: {ai}")
+
+bf = BooleanFunction(truth_table)
+restricted_ai = bf.restricted_algebraic_immunity([0,2])
+print(f"Algebraic immunity: {restricted_ai}")
 ```
 
 ---
