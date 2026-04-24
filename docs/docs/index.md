@@ -1,4 +1,5 @@
 # algebraic_immunity
+[Documentation](https://lucabonamino.github.io/algebraic_immunity/)
 
 Rust implementation of the algebraic immunity and restricted algebraic immunita computation of Boolean functions.
 
