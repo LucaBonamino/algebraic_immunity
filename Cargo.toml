@@ -1,6 +1,6 @@
 [package]
 name = "algebraic_immunity"
-version = "0.2.0"
+version = "1.0.0"
 edition = "2021"
 authors = ["LucaBonamino"]
 description = "A Rust-based Python package to compute the algebraic immunity and restricted algebraic immunity of Boolean functions."

@@ -7,3 +7,5 @@ Cargo.lock
 **__pycache__**
 
 .idea
+
+/docs/site
