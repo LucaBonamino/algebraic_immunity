@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" /><link rel="canonical" href="https://LucaBonemino.github.io/algebraic-immunity/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>algebraic-immunity</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "algebraic_immunity";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/algebraic-immunity/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> algebraic-immunity
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">algebraic_immunity</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installation-via-pypi">✅ Installation via PyPI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#installation-via-pre-built-wheels">Installation via Pre-built Wheels</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usage-example-python">Usage Example (Python)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#future-work">Future Work</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="api/">API Reference</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">algebraic-immunity</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">algebraic_immunity</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="algebraic_immunity">algebraic_immunity</h1>
+<p>Rust implementation of the algebraic immunity and restricted algebraic immunita computation of Boolean functions.</p>
+<p>This Rust implementation is wrapped as a Python package using PyO3 (https://pyo3.rs) and maturin (https://github.com/PyO3/maturin).</p>
+<hr />
+<h2 id="installation">Installation</h2>
+<p>You can install the package via <strong>PyPI</strong> or use the <strong>pre-built wheels</strong> provided in the GitHub releases.</p>
+<h3 id="installation-via-pypi">✅ Installation via PyPI</h3>
+<p>To install the package directly from PyPI:</p>
+<pre><code class="language-bash">pip install algebraic_immunity
+</code></pre>
+<h3 id="installation-via-pre-built-wheels">Installation via Pre-built Wheels</h3>
+<p>If PyPI installation doesn't work for your platform, you can use the pre-built wheels:
+1. Run the following script to determine the correct wheel for your platform:</p>
+<pre><code class="language-bash">python construct_wheel_url.py
+</code></pre>
+<ol>
+<li>Then install the wheel using:</li>
+</ol>
+<pre><code class="language-bash">pip install &lt;output of the previous command&gt;
+</code></pre>
+<hr />
+<h2 id="usage-example-python">Usage Example (Python)</h2>
+<pre><code class="language-python"># Algebraic immunity
+truth_table = [0, 1, 1, 1, 1, 0, 0, 1]
+n = 3
+ai = AlgebraicImmunity.ai(truth_table, n)
+print(f&quot;Algebraic immunity: {ai}&quot;)
+
+# Restricted Algebraic immunity
+bf = BooleanFunction(truth_table)
+ai = bf.algebraic_immunity()
+print(f&quot;Algebraic immunity: {ai}&quot;)
+</code></pre>
+<hr />
+<h2 id="future-work">Future Work</h2>
+<ul>
+<li>Parts of this repository are more broadly relevant to operations over GF(2) matrices. These components could be extracted into a standalone Rust crate in the future.</li>
+<li>The current implementation sometimes uses the <code>clone</code> method unnecessarily to bypass Rust’s borrowing rules. These instances will be reviewed and optimized in future updates.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="api/" class="btn btn-neutral float-right" title="API Reference">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="api/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-04-24 12:20:31.845082+00:00
+-->

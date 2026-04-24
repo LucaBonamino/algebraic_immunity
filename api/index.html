@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://LucaBonemino.github.io/algebraic-immunity/api/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>API Reference - algebraic-immunity</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API Reference";
+        var mkdocs_page_input_path = "api.md";
+        var mkdocs_page_url = "/algebraic-immunity/api/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> algebraic-immunity
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">algebraic_immunity</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">API Reference</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#algebraic_immunity.AlgebraicImmunity">AlgebraicImmunity</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algebraic_immunity.AlgebraicImmunity.__doc__">__doc__</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algebraic_immunity.AlgebraicImmunity.__module__">__module__</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algebraic_immunity.AlgebraicImmunity.__new__">__new__</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algebraic_immunity.AlgebraicImmunity.ai">ai</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algebraic_immunity.AlgebraicImmunity.restricted_ai">restricted_ai</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algebraic_immunity.BooleanFunction">BooleanFunction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algebraic_immunity.BooleanFunction.__doc__">__doc__</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algebraic_immunity.BooleanFunction.__module__">__module__</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algebraic_immunity.BooleanFunction.__new__">__new__</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algebraic_immunity.BooleanFunction.algebraic_immunity">algebraic_immunity</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#algebraic_immunity.BooleanFunction.restricted_algebraic_immunity">restricted_algebraic_immunity</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">algebraic-immunity</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api-reference">API Reference</h1>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="algebraic_immunity.AlgebraicImmunity"></a>
+    <div class="doc doc-contents first">
+
+
+
+        <p>Class for computing algebraic immunity.</p>
+<p>This class does not store any state. Use its static methods to compute
+algebraic immunity directly from a truth table.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="algebraic_immunity.AlgebraicImmunity.__doc__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="vm">__doc__</span> <span class="o">=</span> <span class="s1">&#39;Class for computing algebraic immunity.</span><span class="se">\n\n</span><span class="s1">This class does not store any state. Use its static methods to compute</span><span class="se">\n</span><span class="s1">algebraic immunity directly from a truth table.&#39;</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>str(object='') -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.<strong>str</strong>() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="algebraic_immunity.AlgebraicImmunity.__module__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="vm">__module__</span> <span class="o">=</span> <span class="s1">&#39;algebraic_immunity.algebraic_immunity&#39;</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>str(object='') -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.<strong>str</strong>() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.</p>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="algebraic_immunity.AlgebraicImmunity.__new__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__new__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-builtin"><code>builtin</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create and return a new object.  See help(type) for accurate signature.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="algebraic_immunity.AlgebraicImmunity.ai" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">ai</span><span class="p">(</span><span class="n">truth_table</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute the algebraic immunity of a Boolean function.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>truth_table</code></b>
+              –
+              <div class="doc-md-description">
+                <p>Truth table of the Boolean function. Each entry must be
+either 0 or 1.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>n</code></b>
+              –
+              <div class="doc-md-description">
+                <p>Number of variables of the Boolean function.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              –
+              <div class="doc-md-description">
+                <p>The algebraic immunity of the Boolean function.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">algebraic_immunity</span><span class="w"> </span><span class="kn">import</span> <span class="n">AlgebraicImmunity</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">AlgebraicImmunity</span><span class="o">.</span><span class="n">ai</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="algebraic_immunity.AlgebraicImmunity.restricted_ai" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">restricted_ai</span><span class="p">(</span><span class="n">truth_table</span><span class="p">,</span> <span class="n">restriction_domain</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute the restricted algebraic immunity of a Boolean function.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>truth_table</code></b>
+              –
+              <div class="doc-md-description">
+                <p>Truth table of the Boolean function. Each entry must be
+either 0 or 1.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>restriction_domain</code></b>
+              –
+              <div class="doc-md-description">
+                <p>Subset of truth-table indices on which to compute
+the restricted algebraic immunity.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>n</code></b>
+              –
+              <div class="doc-md-description">
+                <p>Number of variables of the Boolean function.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              –
+              <div class="doc-md-description">
+                <p>The algebraic immunity of the restricted Boolean function.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">algebraic_immunity</span><span class="w"> </span><span class="kn">import</span> <span class="n">AlgebraicImmunity</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">AlgebraicImmunity</span><span class="o">.</span><span class="n">restricted_ai</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="algebraic_immunity.BooleanFunction"></a>
+    <div class="doc doc-contents first">
+
+
+
+        <p>Boolean funcrion object.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="algebraic_immunity.BooleanFunction.__doc__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="vm">__doc__</span> <span class="o">=</span> <span class="s1">&#39;Boolean funcrion object.&#39;</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>str(object='') -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.<strong>str</strong>() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="algebraic_immunity.BooleanFunction.__module__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="vm">__module__</span> <span class="o">=</span> <span class="s1">&#39;algebraic_immunity.algebraic_immunity&#39;</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>str(object='') -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.<strong>str</strong>() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.</p>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="algebraic_immunity.BooleanFunction.__new__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__new__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-builtin"><code>builtin</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create and return a new object.  See help(type) for accurate signature.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="algebraic_immunity.BooleanFunction.algebraic_immunity" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">algebraic_immunity</span><span class="p">()</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-method descriptor"><code>method descriptor</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute the algebraic immunity of the Boolean function.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              –
+              <div class="doc-md-description">
+                <p>The algebraic immunity of the Boolean function.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">algebraic_immunity</span><span class="w"> </span><span class="kn">import</span> <span class="n">BooleanFunction</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bf</span> <span class="o">=</span> <span class="n">BooleanFunction</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bf</span><span class="o">.</span><span class="n">algebraic_immunity</span><span class="p">()</span>
+</code></pre></div>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="algebraic_immunity.BooleanFunction.restricted_algebraic_immunity" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">restricted_algebraic_immunity</span><span class="p">(</span><span class="n">restriction_domain</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-method descriptor"><code>method descriptor</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute the restricted algebraic immunity of the Boolean function.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>restriction_domain</code></b>
+              –
+              <div class="doc-md-description">
+                <p>Subset of input indices on which to restrict the
+Boolean function.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              –
+              <div class="doc-md-description">
+                <p>The algebraic immunity of the restricted Boolean function.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">algebraic_immunity</span><span class="w"> </span><span class="kn">import</span> <span class="n">BooleanFunction</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bf</span> <span class="o">=</span> <span class="n">BooleanFunction</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bf</span><span class="o">.</span><span class="n">restricted_algebraic_immunity</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="algebraic_immunity"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
