@@ -55,11 +55,4 @@ bf = BooleanFunction(truth_table)
 ai = bf.algebraic_immunity()
 print(f"Algebraic immunity: {ai}")
 ```
-
----
-
-## Future Work
-
-- Parts of this repository are more broadly relevant to operations over GF(2) matrices. These components could be extracted into a standalone Rust crate in the future.
-- The current implementation sometimes uses the `clone` method unnecessarily to bypass Rust’s borrowing rules. These instances will be reviewed and optimized in future updates.
  
